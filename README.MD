@@ -6,4 +6,8 @@
 
 - yarn add graphql-yoga
 - yarn add nodemon -D
-- yarn add babel-cli -D
+- yarn dotenv
+  - env 파일을 읽음
+- yarn add @babel/node
+- yarn add @babel/preset-env
+- yarn add @babel/core
