@@ -4,6 +4,8 @@
 
 ## Prisma
 
+- 참고
+  - https://www.prisma.io/docs/datamodel-and-migrations/datamodel-MYSQL-knul/
 - ORM(Object Relational Mapping)
 
 * 필요한 모델을 graphql로 정의할 수 있음
