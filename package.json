@@ -1,0 +1,19 @@
+{
+  "name": "j_stargram",
+  "version": "1.0.0",
+  "description": "instargram with Express + Prisma + React and React Native",
+  "repository": "https://github.com/nsns0101/j_stargram.git",
+  "author": "nsns0101 <nsns0101@naver.com>",
+  "license": "MIT",
+  "dependencies": {
+    "babel-node": "^0.0.1-security",
+    "graphql-yoga": "^1.18.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "nodemon": "^2.0.2"
+  },
+  "scripts": {
+    "start": "nodemon --exec babel-node src/server.js"
+  }
+}
