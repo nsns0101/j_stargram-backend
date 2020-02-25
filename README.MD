@@ -11,3 +11,7 @@
 - yarn add @babel/node
 - yarn add @babel/preset-env
 - yarn add @babel/core
+- yarn add morgan
+  - 로깅 전용 모듈
+- yarn add graphql-tools merge-graphql-schemas
+  - 스키마들을 통합해서 한번에 import할 수 있게 만들어 줌
