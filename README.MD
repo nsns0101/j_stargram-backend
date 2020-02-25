@@ -31,3 +31,4 @@
   - 스키마들을 통합해서 한번에 import할 수 있게 만들어 줌
 - yarn add prisma
   - prisma cli설치
+- yarn add prisma-client-lib

@@ -1,10 +1,3 @@
 type Query {
   sayGoodbye: String!
 }
-
-# localhost:4000에서
-# query{
-#   sayHello
-#   sayGoodbye
-# }
-#실행해보기
