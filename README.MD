@@ -2,6 +2,14 @@
 
 - instargram with Express + Prisma + React and React Native
 
+## User Stories
+
+- See the feed
+
+  - 접속시 feed를 볼 수 있게
+
+-
+
 ## Prisma
 
 - 참고
