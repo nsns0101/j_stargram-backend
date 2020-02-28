@@ -2,16 +2,16 @@ type User {
   id: ID!
   username: String!
   email: String!
-  firstname: String
+  firstName: String
   lastName: String
   bio: String
-  followers: [User!]!
   following: [User!]!
+  followers: [User!]!
   posts: [Post!]!
   likes: [Like!]!
   comments: [Comment!]!
   rooms: [Room!]!
-  loginSecret: String!
+  loginSecret: String
 }
 
 type Post {

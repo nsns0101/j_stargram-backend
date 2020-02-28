@@ -4,11 +4,20 @@
 
 ## User Stories
 
+- Create account
+- Request Secret
+- Confirm Secret(Login)
+- Like / UnLike a photo
+- Comment on a photo
+- Search by user
+- Search by location
+- See user profile
+- Follow / UnFollow User
+- See the full photo
+- Edit my profile
+- Upload a photo
+- Edit the photo (Delete)
 - See the feed
-
-  - 접속시 feed를 볼 수 있게
-
--
 
 ## Prisma
 
@@ -40,3 +49,5 @@
 - yarn add prisma
   - prisma cli설치
 - yarn add prisma-client-lib
+- yarn add nodemailer
+- yarn add nodemailer-mailgun-transport
