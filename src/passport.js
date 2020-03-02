@@ -2,9 +2,7 @@
 import { prisma } from "../generated/prisma-client";
 import passport from "passport";
 import { Strategy, ExtractJwt } from "passport-jwt";
-import dotenv from "dotenv";
-import path from "path";
-dotenv.config({ path: path.resolve(__dirname, ".env") });
+import "./env"; //env.js
 
 const jwtOptions = {
   //fromAuthHeaderAsBearerToken : Authorization헤더에서 jwt를 찾는 역할

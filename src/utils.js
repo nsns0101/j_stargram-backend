@@ -1,12 +1,10 @@
 //비밀값만들기 + 이메일 보내는 포맷 + 토큰생성
-import dotenv from "dotenv";
-import path from "path";
+import "./env"; //env.js
 import { adjectives, nouns } from "./words";
 import nodemailer from "nodemailer";
 // import mailgun_Transport from "nodemailer-mailgun-transport";
 import sgTransport from "nodemailer-sendgrid-transport";
 import jwt from "jsonwebtoken"; //json web token
-dotenv.config({ path: path.resolve(__dirname, ".env") });
 
 //비밀값 만들기
 export const generateSecret = () => {
