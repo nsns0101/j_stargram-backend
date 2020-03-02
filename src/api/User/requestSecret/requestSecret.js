@@ -1,10 +1,10 @@
 //utils에서 만들어진 것들을 실행
-import { prisma } from "../../../../generated/prisma-client";
 import { generateSecret, sendSecretMail } from "../../../utils";
 
 export default {
   Mutation: {
-    requestSecret: async (_, args) => {
+    //{prisma}는 server.js 참고
+    requestSecret: async (_, args, { prisma }) => {
       const { email } = args;
       //secret는 자동으로 생성되는 형용사 + 명사가 합쳐진 말
       const loginSecret = generateSecret();
