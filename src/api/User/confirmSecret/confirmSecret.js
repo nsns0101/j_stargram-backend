@@ -1,6 +1,6 @@
 //토큰발급
 import { prisma } from "../../../../generated/prisma-client";
-
+import { generateToken } from "../../../utils";
 export default {
   Mutation: {
     confirmSecret: async (_, args) => {
@@ -11,8 +11,9 @@ export default {
 
       //받은 user정보에서 loginSecret가 입력한 secret와 같은지 판단
       if (user.loginSecret === secret) {
-        //JWT
-        return "TOKEN";
+        //JWT(Json Web Token)
+        const token = generateToken(user.id);
+        return token;
       } else {
         return Error("Wrong email/secret conviation");
       }

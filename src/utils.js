@@ -1,9 +1,11 @@
+//비밀값만들기 + 이메일 보내는 포맷 + 토큰생성
 import dotenv from "dotenv";
 import path from "path";
 import { adjectives, nouns } from "./words";
 import nodemailer from "nodemailer";
 // import mailgun_Transport from "nodemailer-mailgun-transport";
 import sgTransport from "nodemailer-sendgrid-transport";
+import jwt from "jsonwebtoken"; //json web token
 dotenv.config({ path: path.resolve(__dirname, ".env") });
 
 //비밀값 만들기
@@ -38,4 +40,11 @@ export const sendSecretMail = (adress, secret) => {
     html: `Hello! Your login secret is <b>${secret}</b>. <br/>Copy paste on the app/website to login` //메일 내용
   };
   return sendMail(email);
+};
+
+//토큰생성
+// https://github.com/auth0/node-jsonwebtoken
+export const generateToken = id => {
+  //jwt가 id를 암호화하면서 토큰을 생성함
+  return jwt.sign({ id }, process.env.JWT_SECRET);
 };

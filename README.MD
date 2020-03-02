@@ -33,6 +33,12 @@
 * 모델 생성
   - datamodel.prisma에서 설정하고 명령창에서 prisma deploy하면 됨
 
+### PASSPORT
+
+- 인증기능 사용
+- passport-jwt사용
+- json web token : https://github.com/auth0/node-jsonwebtoken
+
 ### yarn add list
 
 - yarn add graphql-yoga
@@ -51,3 +57,5 @@
 - yarn add prisma-client-lib
 - yarn add nodemailer
 - yarn add nodemailer-mailgun-transport
+- yarn add passport-jwt passport
+- yarn add jsonwebtoken
