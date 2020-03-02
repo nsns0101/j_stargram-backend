@@ -1,5 +1,6 @@
+//utils에서 만들어진 것들을 실행
 import { prisma } from "../../../../generated/prisma-client";
-import { generateSecret } from "../../../utils";
+import { generateSecret, sendSecretMail } from "../../../utils";
 
 export default {
   Mutation: {
@@ -11,6 +12,7 @@ export default {
 
       try {
         //현재 주어진 이메일을 위에서 생성된 loginsecret로 업데이트
+        await sendSecretMail(email, loginSecret);
         await prisma.updateUser({
           data: { loginSecret },
           where: { email }

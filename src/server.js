@@ -9,7 +9,7 @@ import { sendSecretMail } from "./utils";
 
 // utils.js참고
 //sendSecretMail(받는이메일, 암호)
-sendSecretMail("nsns0101@naver.com", "123");
+// sendSecretMail("nsns0101@naver.com", "123");
 
 //env파일의 PORT설정해 둔 것을 가져옴. 설정값이 없으면 default로 4000을 부여
 const PORT = process.env.PORT || 4000;
