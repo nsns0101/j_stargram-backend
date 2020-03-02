@@ -4,7 +4,8 @@ import { generateSecret, sendSecretMail } from "../../../utils";
 export default {
   Mutation: {
     //{prisma}는 server.js 참고
-    requestSecret: async (_, args, { prisma }) => {
+    requestSecret: async (_, args, { prisma, request }) => {
+      console.log(request);
       const { email } = args;
       //secret는 자동으로 생성되는 형용사 + 명사가 합쳐진 말
       const loginSecret = generateSecret();

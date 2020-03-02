@@ -16,7 +16,8 @@ const PORT = process.env.PORT || 4000;
 const server = new GraphQLServer({
   schema,
   //context는 resolver 사이에서 정보를 공유할 때 사용
-  context: { prisma } //모든 resolver에 prisma를 넘김
+  context: { prisma }, //모든 resolver에 prisma를 넘김
+  context: ({ request }) => ({ request })
 });
 
 //GraphQLServer에는 express 서버가 내장되어 있음
