@@ -1,10 +1,9 @@
 //토큰발급
-// import { prisma } from "../../../../generated/prisma-client";
+import { prisma } from "../../../../generated/prisma-client";
 import { generateToken } from "../../../utils";
 export default {
   Mutation: {
-    //{prisma}는 server.js 참고
-    confirmSecret: async (_, args, { prisma }) => {
+    confirmSecret: async (_, args) => {
       const { email, secret } = args;
       console.log(email, secret);
       //입력한 email에 해당하는 user정보를 get

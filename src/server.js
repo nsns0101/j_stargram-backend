@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 4000;
 const server = new GraphQLServer({
   schema,
   //context는 resolver 사이에서 정보를 공유할 때 사용
-  context: { prisma }, //모든 resolver에 prisma를 넘김
+  // context: { prisma } //모든 resolver에 prisma를 넘김
   context: ({ request }) => ({ request })
 });
 
@@ -25,7 +25,7 @@ const server = new GraphQLServer({
 
 //모든 경로를 passport.authenticate('jwt')로 보호
 // server.express.use(passport.authenticate("jwt"));
-server.express.use(authenticateJwt);
+server.express.use(authenticateJwt); //로그인
 
 server.start({ port: PORT }, () =>
   console.log(`Server running on http://localhost:${PORT}`)
