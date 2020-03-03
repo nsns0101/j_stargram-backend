@@ -1,7 +1,7 @@
 //검색
 //username이 jang이면 ang로도 검색이 가능함(jang에 ang가 포함됨)
 //term이 검색하는 것( ex)ang )
-import { prisma } from "../../../generated/prisma-client";
+import { prisma } from "../../../../generated/prisma-client";
 
 export default {
   Query: {
