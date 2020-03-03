@@ -2,7 +2,7 @@
 
 - instargram with Express + Prisma + React and React Native
 
-## User Stories
+## 기능
 
 - Create account
 - Request Secret
