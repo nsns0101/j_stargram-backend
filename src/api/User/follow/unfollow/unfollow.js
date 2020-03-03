@@ -1,10 +1,7 @@
-import { isAuthenticated } from "../../../../middlewares";
-import { prisma } from "../../../../../generated/prisma-client";
-
 //언팔로우
 export default {
   Mutation: {
-    unfollow: async (_, args, { request }) => {
+    unfollow: async (_, args, { request, isAuthenticated, prisma }) => {
       //로그인이 필요한 서비스
       isAuthenticated(request);
 

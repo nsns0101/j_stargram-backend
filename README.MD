@@ -11,10 +11,11 @@
 - Comment on a photo
 - Search by user
 - Search by location
+- See my profile
 - See user profile
 - Follow User / UnFollow User
-- See the full photo
 - Edit my profile
+- See the full photo
 - Upload a photo
 - Edit the photo (Delete)
 - See the feed

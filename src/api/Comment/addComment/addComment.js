@@ -1,10 +1,7 @@
 //댓글 작성
-import { prisma } from "../../../../generated/prisma-client";
-import { isAuthenticated } from "../../../middlewares";
-
 export default {
   Mutation: {
-    addComment: async (_, args, { request }) => {
+    addComment: async (_, args, { request, prisma, isAuthenticated }) => {
       isAuthenticated(request);
       const { text, postId } = args;
       const { user } = request;

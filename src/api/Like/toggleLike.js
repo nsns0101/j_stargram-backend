@@ -1,10 +1,8 @@
 //좋아요 투표시 실행되는 함수
 import { isAuthenticated } from "../../middlewares";
-import { prisma } from "../../../generated/prisma-client";
-
 export default {
   Mutation: {
-    toggleLike: async (_, args, { request }) => {
+    toggleLike: async (_, args, { request, prisma }) => {
       //   console.log(request);
 
       //로그인 상태인지를 확인

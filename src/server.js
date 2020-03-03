@@ -6,6 +6,7 @@ import schema from "./schema";
 // import { sendSecretMail } from "./utils";
 import "./passport";
 import { authenticateJwt } from "./passport";
+import { isAuthenticated } from "./middlewares";
 // utils.js참고
 //sendSecretMail(받는이메일, 암호)
 // sendSecretMail("nsns0101@naver.com", "123");
@@ -17,7 +18,7 @@ const server = new GraphQLServer({
   schema,
   //context는 resolver 사이에서 정보를 공유할 때 사용
   // context: { prisma } //모든 resolver에 prisma를 넘김
-  context: ({ request }) => ({ request })
+  context: ({ request }) => ({ request, isAuthenticated, prisma })
 });
 
 //GraphQLServer에는 express 서버가 내장되어 있음
