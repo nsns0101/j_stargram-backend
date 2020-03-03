@@ -11,6 +11,13 @@ export default {
 
       //받은 user정보에서 loginSecret가 입력한 secret와 같은지 판단
       if (user.loginSecret === secret) {
+        //같으면 발급한 loginSecret을 초기화
+        await prisma.updateUser({
+          where: { id: user.id },
+          data: {
+            loginSecret: ""
+          }
+        });
         //JWT(Json Web Token)
         const token = generateToken(user.id);
         return token;

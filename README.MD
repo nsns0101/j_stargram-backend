@@ -12,7 +12,7 @@
 - Search by user
 - Search by location
 - See user profile
-- Follow / UnFollow User
+- Follow User / UnFollow User
 - See the full photo
 - Edit my profile
 - Upload a photo
