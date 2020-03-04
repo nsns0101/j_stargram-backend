@@ -1,9 +1,15 @@
 //유저정보보기
 export default {
   Query: {
-    seeUserProfile: (_, args, { prisma }) => {
+    seeUserProfile: async (_, args, { prisma }) => {
+      const { id } = args;
       //유저검색
-      return prisma.user({ id: args.id });
+      const user = await prisma.user({ id });
+      const posts = await prisma.user({ id }).posts();
+      return {
+        user,
+        posts
+      };
     }
   }
 };

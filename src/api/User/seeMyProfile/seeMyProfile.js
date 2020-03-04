@@ -11,7 +11,7 @@ export default {
       //이 파일의 graph.ql참고
       return {
         user: myProfile,
-        post: myPosts
+        posts: myPosts
       };
     }
   }
