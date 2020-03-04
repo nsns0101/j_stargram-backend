@@ -1,3 +1,4 @@
+//내정보 보기
 import { USER_FRAGMENT } from "../../../fragments";
 
 export default {
