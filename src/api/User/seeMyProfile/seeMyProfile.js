@@ -1,6 +1,4 @@
 //내정보 보기
-import { USER_FRAGMENT } from "../../../fragments";
-
 export default {
   Query: {
     //DoubleUnderScore(__)는 부모의 arguments를 뜻함
@@ -14,6 +12,12 @@ export default {
         user: myProfile,
         posts: myPosts
       };
+    }
+  },
+  User: {
+    fullName: parent => {
+      console.log(parent);
+      return `${parent.firstName} ${parent.lastName}`;
     }
   }
 };
