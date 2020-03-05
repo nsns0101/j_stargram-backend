@@ -15,10 +15,14 @@
 - See user profile
 - Follow User / UnFollow User
 - Edit my profile
-- See the full photo
-- Upload a photo
-- Edit the photo (Delete)
+- See the full post
+- Upload a post
+- Edit the post (Delete)
 - See the feed
+- See rooms
+- See room
+- Send private Message
+- Receive Message(RealTime)
 
 ## Prisma
 

@@ -46,10 +46,11 @@ export default {
     isLiked: async (parent, _, { request, prisma }) => {
       const { user } = request;
       const { id: parentId } = parent;
+      //좋아요가 있는지를 판단
       return prisma.$exists.like({
         AND: [
-          { user: { id: user.id } }, //
-          { post: { id: parentId } } //
+          { user: { id: user.id } }, // 2) 내 id의 좋아요가 있는지
+          { post: { id: parentId } } // 1) 현재 게시글에
         ]
       });
     }
