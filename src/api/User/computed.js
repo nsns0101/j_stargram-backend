@@ -1,5 +1,6 @@
 //computed.js 또한 하나의 resolver라서 resolver를 종합할 때 같이 종합됨
 export default {
+  //유저-------------------------------------------------------------------------------------------------------------------
   User: {
     //fullName
     //parent는 상위 resolver가 return한 값을 그대로 가져오는 것인가?
@@ -36,6 +37,21 @@ export default {
       const { user } = request;
       const { id: parentId } = parent;
       return user.id === parentId;
+    }
+  },
+  //게시글-------------------------------------------------------------------------------------------------------------------
+  Post: {
+    //isLiked
+    //내가 좋아요한 글인지?
+    isLiked: async (parent, _, { request, prisma }) => {
+      const { user } = request;
+      const { id: parentId } = parent;
+      return prisma.$exists.like({
+        AND: [
+          { user: { id: user.id } }, //
+          { post: { id: parentId } } //
+        ]
+      });
     }
   }
 };
