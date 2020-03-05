@@ -15,13 +15,13 @@ export default {
         .comments()
         .$fragment(COMMENT_FRAGMENT);
 
-      //해당하는 게시글의 좋아요 정보
-      const likeCount = await prisma
-        .likesConnection({
-          where: { post: { id } }
-        })
-        .aggregate() //aggregate() : 자료를 범주별로 나누어서 각 범주에 대한 통계량을 구해줌
-        .count();
+      // //해당하는 게시글의 좋아요 정보
+      // const likeCount = await prisma
+      //   .likesConnection({
+      //     where: { post: { id } }
+      //   })
+      //   .aggregate() //aggregate() : 자료를 범주별로 나누어서 각 범주에 대한 통계량을 구해줌
+      //   .count();
 
       //해당하는 게시글의 파일(이미지) 정보
       const files = await prisma.post({ id }).files();
@@ -32,7 +32,6 @@ export default {
       return {
         post,
         comments,
-        likeCount,
         files,
         user
       };
