@@ -37,6 +37,8 @@
   - .gitignore에 생성된 generated를 추가
 * 모델 생성
   - datamodel.prisma에서 설정하고 명령창에서 prisma deploy하면 됨
+* 외래키설정(onDelete)
+  - @relation옵션으로 name을 같게하고 기본키에 onDelete를 달고 외래키에는 name만 입력한다.
 
 ### PASSPORT
 
