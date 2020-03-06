@@ -17,7 +17,7 @@ export default {
 
     //좋아요 수
     likeCount: async (parent, _, { prisma }) => {
-      console.log(prisma);
+      // console.log(prisma);
       return prisma
         .likesConnection({
           where: { post: { id: parent.id } }
