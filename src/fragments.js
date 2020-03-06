@@ -37,3 +37,13 @@ export const FULL_POST_FRAGMENT = `
 
     }
 `;
+
+// 룸 프래그먼트
+export const ROOM_FRAGMENT = `
+    fragment RoomParts on Room {
+        id
+        participants {
+            id
+        }
+    }
+`;

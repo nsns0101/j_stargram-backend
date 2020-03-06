@@ -19,9 +19,9 @@
 - Upload a post
 - Edit the post (Delete)
 - See the feed
+- Send private Message
 - See rooms
 - See room
-- Send private Message
 - Receive Message(RealTime)
 
 ## Prisma
