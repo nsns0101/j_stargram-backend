@@ -1,6 +1,4 @@
 //메시지 전송
-import { ROOM_FRAGMENT } from "../../../../fragments";
-
 export default {
   Mutation: {
     sendMessage: async (_, args, { request, isAuthenticated, prisma }) => {
@@ -16,20 +14,19 @@ export default {
           throw Error("자기자신에게는 메시지를 보낼 수 없습니다.");
         }
         //채팅방 생성
-        room = await prisma
-          .createRoom({
-            //채팅방 참가자
-            participants: {
-              connect: [{ id: toId }, { id: user.id }] //채팅 받는 사람과 채팅 보내는 유저를 연결
-            }
-          })
-          .$fragment(ROOM_FRAGMENT);
+        room = await prisma.createRoom({
+          //채팅방 참가자
+          participants: {
+            connect: [{ id: toId }, { id: user.id }] //채팅 받는 사람과 채팅 보내는 유저를 연결
+          }
+        });
+
         console.log(room);
       }
       //채팅방이 있는경우(채팅 받는 사람과 채팅 보내는 사람이 이미 연결됨)
       else {
         //메시지를 보내려고 하는 채팅방이 무엇인지를 찾아야함
-        room = await prisma.room({ id: roomId }).$fragment(ROOM_FRAGMENT);
+        room = await prisma.room({ id: roomId });
       }
       //룸이 없을 경우
       if (!room) {

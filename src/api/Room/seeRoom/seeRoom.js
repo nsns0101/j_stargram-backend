@@ -1,6 +1,4 @@
 //채팅방 보기
-import { ROOM_FRAGMENT } from "../../../fragments";
-
 export default {
   Query: {
     seeRoom: async (_, args, { request, isAuthenticated, prisma }) => {
@@ -17,7 +15,7 @@ export default {
       //참여하고 있는 채팅방이 있으면
       if (canSee) {
         //검색한 채팅방의 정보를 보여줌(채팅방, 메시지 = ROOM_FRAGMENT참고)
-        return prisma.room({ id }).$fragment(ROOM_FRAGMENT);
+        return prisma.room({ id });
       }
       //참여하고 있는 채팅방이 없으면
       else {

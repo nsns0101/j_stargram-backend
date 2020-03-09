@@ -2,25 +2,25 @@
 export default {
   //유저-------------------------------------------------------------------------------------------------------------------
   User: {
-    posts: ({ id }) => prisma.user({ id }).posts(), //해당 유저의 게시글 정보
-    following: ({ id }) => prisma.user({ id }).following(), //해당 유저의 팔로잉 정보
-    followers: ({ id }) => prisma.user({ id }).followers(), //해당 유저의 팔로워 정보
-    likes: ({ id }) => prisma.user({ id }).likes(), //해당 유저의 좋아요 정보
-    comments: ({ id }) => prisma.user({ id }).comments(), //해당 유저의 댓글 정보
-    rooms: ({ id }) => prisma.user({ id }).rooms(), //해당 유저의 채팅방 정보
+    posts: ({ id, prisma }) => prisma.user({ id }).posts(), //해당 유저의 게시글 정보
+    following: ({ id, prisma }) => prisma.user({ id }).following(), //해당 유저의 팔로잉 정보
+    followers: ({ id, prisma }) => prisma.user({ id }).followers(), //해당 유저의 팔로워 정보
+    likes: ({ id, prisma }) => prisma.user({ id }).likes(), //해당 유저의 좋아요 정보
+    comments: ({ id, prisma }) => prisma.user({ id }).comments(), //해당 유저의 댓글 정보
+    rooms: ({ id, prisma }) => prisma.user({ id }).rooms(), //해당 유저의 채팅방 정보
 
     //해당 유저가 팔로우하고 있는 인원 수
-    followingCount: ({ id }) =>
+    followingCount: ({ id, prisma }) =>
       prisma
         .usersConnection({ where: { followers_some: { id } } })
-        .aggregate()
+        .aggregate() //자료를 범주별로 나누어서 각 범주에 대한 통계량을 구해준다.
         .count(),
 
     //해당 유저의 팔로워 수
-    followersCount: ({ id }) =>
+    followersCount: ({ id, prisma }) =>
       prisma
         .usersConnection({ where: { following_none: { id } } })
-        .aggregate()
+        .aggregate() //자료를 범주별로 나누어서 각 범주에 대한 통계량을 구해준다.
         .count(),
 
     //fullName
