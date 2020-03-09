@@ -32,8 +32,10 @@ export default {
       if (!room) {
         throw Error("채팅방을 찾을 수 없습니다.");
       }
+      //채팅유저 정보 획득
+      const participants = await prisma.room({ id: roomId }).participants();
       //채팅유저 중에서 나와 이야기하는 사람들 중 첫번째 id
-      const getTo = room.participants.filter(
+      const getTo = participants.filter(
         participant => participant.id !== user.id
       )[0];
       console.log(getTo.id);
