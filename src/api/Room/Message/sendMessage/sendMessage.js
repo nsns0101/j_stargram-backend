@@ -1,4 +1,5 @@
-import { ROOM_FRAGMENT } from "../../../fragments";
+//메시지 전송
+import { ROOM_FRAGMENT } from "../../../../fragments";
 
 export default {
   Mutation: {
