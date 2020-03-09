@@ -1,4 +1,5 @@
 //채팅방에 새로운 메시지가 뜨면 새로고침없이 받을 수 있다?
+//강의 3.29참고
 export default {
   Subscription: {
     //Subscription은

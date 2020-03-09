@@ -1,23 +1,25 @@
+import { prisma } from "../../../generated/prisma-client";
+
 //computed.js 또한 하나의 resolver라서 resolver를 종합할 때 같이 종합됨
 export default {
   //유저-------------------------------------------------------------------------------------------------------------------
   User: {
-    posts: ({ id, prisma }) => prisma.user({ id }).posts(), //해당 유저의 게시글 정보
-    following: ({ id, prisma }) => prisma.user({ id }).following(), //해당 유저의 팔로잉 정보
-    followers: ({ id, prisma }) => prisma.user({ id }).followers(), //해당 유저의 팔로워 정보
-    likes: ({ id, prisma }) => prisma.user({ id }).likes(), //해당 유저의 좋아요 정보
-    comments: ({ id, prisma }) => prisma.user({ id }).comments(), //해당 유저의 댓글 정보
-    rooms: ({ id, prisma }) => prisma.user({ id }).rooms(), //해당 유저의 채팅방 정보
+    posts: ({ id }) => prisma.user({ id }).posts(), //해당 유저의 게시글 정보
+    following: ({ id }) => prisma.user({ id }).following(), //해당 유저의 팔로잉 정보
+    followers: ({ id }) => prisma.user({ id }).followers(), //해당 유저의 팔로워 정보
+    likes: ({ id }) => prisma.user({ id }).likes(), //해당 유저의 좋아요 정보
+    comments: ({ id }) => prisma.user({ id }).comments(), //해당 유저의 댓글 정보
+    rooms: ({ id }) => prisma.user({ id }).rooms(), //해당 유저의 채팅방 정보
 
     //해당 유저가 팔로우하고 있는 인원 수
-    followingCount: ({ id, prisma }) =>
+    followingCount: ({ id }) =>
       prisma
         .usersConnection({ where: { followers_some: { id } } })
         .aggregate() //자료를 범주별로 나누어서 각 범주에 대한 통계량을 구해준다.
         .count(),
 
     //해당 유저의 팔로워 수
-    followersCount: ({ id, prisma }) =>
+    followersCount: ({ id }) =>
       prisma
         .usersConnection({ where: { following_none: { id } } })
         .aggregate() //자료를 범주별로 나누어서 각 범주에 대한 통계량을 구해준다.

@@ -1,6 +1,11 @@
+import { prisma } from "../../../generated/prisma-client";
 export default {
   //게시글-------------------------------------------------------------------------------------------------------------------
   Post: {
+    files: ({ id }) => prisma.post({ id }).files(), //게시글의 파일정보
+    comments: ({ id }) => prisma.post({ id }).comments(), //게시글의 댓글정보
+    user: ({ id }) => prisma.post({ id }).user(), //게시글 작성자 정보
+    likes: ({ id }) => prisma.post({ id }).likes(), //게시글 좋아요한 사람들 정보
     //isLiked
     //내가 좋아요한 글인지?
     isLiked: async (parent, _, { request, prisma }) => {
