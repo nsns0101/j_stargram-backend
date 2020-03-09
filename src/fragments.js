@@ -1,3 +1,5 @@
+//프래그먼트를 토대로 검색하면 될듯
+
 //유저 정보
 export const USER_FRAGMENT = `
         id
@@ -18,6 +20,18 @@ export const COMMENT_FRAGMENT = `
 export const FILE_FRAGMENT = `
         id
         url
+`;
+
+//메시지 정보
+export const MeSSAGE_FRAGMENT = `
+    id
+    text
+    to {
+        ${USER_FRAGMENT}
+    }
+    from {
+        ${USER_FRAGMENT}
+    }
 `;
 
 //게시글 프래그먼트
@@ -45,6 +59,9 @@ export const ROOM_FRAGMENT = `
         id
         participants {
             ${USER_FRAGMENT}
+        }
+        messages{
+            ${MeSSAGE_FRAGMENT}
         }
     }
 `;
