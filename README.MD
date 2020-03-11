@@ -1,6 +1,6 @@
-# j_stargram
+# j_stargram back-end
 
-- instargram with Express + Prisma + React and React Native
+- instargram with GraphQL(Express) + Prisma
 
 ## 기능
 

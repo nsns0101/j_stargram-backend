@@ -2,8 +2,8 @@
 import "./env"; //env.js
 import { adjectives, nouns } from "./words";
 import nodemailer from "nodemailer";
-// import mailgun_Transport from "nodemailer-mailgun-transport";
-import sgTransport from "nodemailer-sendgrid-transport";
+import mailgun_Transport from "nodemailer-mailgun-transport";
+// import sgTransport from "nodemailer-sendgrid-transport";
 import jwt from "jsonwebtoken"; //json web token
 
 //비밀값 만들기
@@ -14,18 +14,20 @@ export const generateSecret = () => {
 };
 
 // https://github.com/orliesaurus/nodemailer-mailgun-transport/blob/master/README.mdconst
-const sendMail = async email => {
+const sendMail = email => {
   const options = {
     auth: {
-      // api_key: process.env.MAILGUN_API_KEY,
-      // domain: process.env.MAILGUN_API_DOMAIN
-      api_user: process.env.SENDGRID_USERNAME,
-      api_key: process.env.SENDGRID_PASSWORD
+      api_key: process.env.MAILGUN_API_KEY,
+      domain: process.env.MAILGUN_DOMAIN
+      // api_user: process.env.SENDGRID_USERNAME,
+      // api_key: process.env.SENDGRID_PASSWORD
     }
   };
-  // const client = nodemailer.createTransport(mailgun_Transport(options));
-  const client = nodemailer.createTransport(sgTransport(options));
-  return client.sendMail(email);
+  const nodemailerMailgun = nodemailer.createTransport(
+    mailgun_Transport(options)
+  );
+  // const client = nodemailer.createTransport(sgTransport(options));
+  return nodemailerMailgun.sendMail(email);
 };
 
 //sendSecretMail함수 호출은 server.js에서함
